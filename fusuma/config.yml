@@ -1,0 +1,42 @@
+swipe:
+  3:
+    left:
+      command: "xdotool key alt+Right" # Go back 
+    right:
+      command: "xdotool key alt+Left" # Go forward
+    up:
+      command: "xdotool key super" # Show all open apps
+    down:
+      sendkey: "LEFTCTRL+LEFTALT+D" # Minimize all apps
+  4:
+    left:
+      command: "xdotool key super+Left" # 50% Right
+    right:
+      command: "xdotool key super+Right" # 50% Left
+    up:
+      command: "xdotool key super+Up" # Maximize window
+      keypress:
+        LEFTALT:
+          command: "xdotool key --clearmodifiers ctrl+alt+Down" # Switch to next workspace
+    down:
+      command: "xdotool key super+Down" # Revert window size
+      keypress:
+        LEFTALT:
+          command: "xdotool key --clearmodifiers ctrl+alt+Up" # Switch to previous workspace
+pinch:
+  in:
+    command: "xdotool keydown ctrl click 4 keyup ctrl" # Zoom in
+  out:
+    command: "xdotool keydown ctrl click 5 keyup ctrl" # Zoom out
+    
+threshold:
+  pinch: 1.0
+
+interval:
+  swipe: 1.0
+  pinch: 1.0
+  
+plugin:
+  inputs:
+    libinput_command_input:
+      show-keycodes: true
